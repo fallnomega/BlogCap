@@ -12,6 +12,7 @@ So 5 * 6 = {{ 5 * 6 }}</h2>
 <h3>Random number: {{ ran }}</h3>
 </body>
 <footer>
-    <p>Copyright {{ copy_year }}</p>
+    <p><a href="{{ url_for('get_blog', num=3) }}"> Go to Fake Blog </a>
+        <br>Copyright {{ copy_year }}</p>
 </footer>
 </html>

@@ -12,7 +12,7 @@ app = Flask(__name__)
 def home(name=None):
     random_number = random.randint(1,10)
     copyright_year = datetime.date.today().year
-    return render_template('index.html', ran=random_number,copy_year = copyright_year)
+    return render_template('old_index.html', ran=random_number,copy_year = copyright_year)
 
 @app.route('/guess/<name>')
 def guess_age(name):
@@ -22,15 +22,20 @@ def guess_age(name):
     gender_response = gender_request.json()
     return render_template('guess.html',name=name, gender=gender_response['gender'],age = agify_response['age'])
 
-@app.route('/blog')
-def blog():
+# @app.route('/blog')
+# def get_blog():
+#     blog_url='https://api.npoint.io/1fdb956d180291f3f459'
+#     blog_get = requests.get(url=blog_url)
+#     the_blog=blog_get.json()
+#     return render_template('old_blog.html',all_posts= the_blog)
+
+@app.route('/blog/<num>')
+def get_blog(num):
+    print(num)
     blog_url='https://api.npoint.io/1fdb956d180291f3f459'
     blog_get = requests.get(url=blog_url)
     the_blog=blog_get.json()
-    # print(the_blog)
-
-    return render_template('blog.html',all_posts= the_blog)
-
+    return render_template('old_blog.html', all_posts=the_blog)
 
 if __name__ == "__main__":
     app.run(debug=True)
