@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Blog</title>
+
+<!--{'why': ['quick setup', 'easy editing', 'schema validation'], 'what': 'a simple JSON data store'}-->
+</head>
+<body>
+{% for post in all_posts: %}
+<h2>{{ post['title'] }}</h2>
+<h3>{{ post['subtitle'] }}</h3>
+{% endfor %}
+<hr>
+{% for post in all_posts: %}
+{% if post['id'] == 2: %}
+<h2>{{ post['title'] }}</h2>
+{% endif %}
+{% endfor %}
+
+</body>
+</html>
